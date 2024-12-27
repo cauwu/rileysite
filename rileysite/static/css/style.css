@@ -1,22 +1,21 @@
 :root {
     font-size: 20px;
-    color-scheme: dark;
+    color-scheme: light;
 }
 
 html {
-    overflow-y: scroll; 
-    overscroll-behavior-y: none;
+	overflow-y: scroll;
+    overscroll-behavior-y: auto;
+	overflow-x: clip;
+	overscroll-behavior-x: none;
     font-family: 'SimSun';
-    /*cursor: url('../site/cursor.svg') 0 0, auto;*/
 }
 
 body {
-    position: relative;
     margin: 0rem;
-    padding: 0.3rem 0rem 0.3rem 0rem;
 	display: flex;
-	flex-direction: row;
-	background-image: url('../../testbg.jpg');
+	flex-direction: column;
+	padding-top: 1rem;
 }
 
 #navpane {
@@ -27,10 +26,11 @@ body {
 }
 
 #navcontainer {
-	width: 180px;
+	width: 280px;
 	font-size: 1.4rem;
 	display: flex;
 	flex-direction: column;
+	padding-top: 40vh;
 }
 
 #contentpane {
@@ -39,16 +39,21 @@ body {
 	flex-grow: 1;
 }
 
+#under {
+	display: flex;
+	flex-direction: row;
+}
+
 #main {
-	max-width: 1080px;
+	max-width: 840px;
 	display: flex;
 	flex-direction: column;
 	margin: 0rem 0.6rem 0rem 0.6rem;
 }
 
 #extrapane {
-	width: 180px;
-	padding: 8rem 0rem 0rem 1.6rem;
+	width: 280px;
+	margin: 4rem 0rem 0rem 0rem;
 }
 
 footer {
@@ -63,36 +68,85 @@ article {
 	flex-direction: column;
 }
 
-/* === Cursor Effect === */
-
-#cursorpos {
-    position: absolute;
-    top: -256px;
-    left: -256px;
-    user-select: none;
-    pointer-events: none;
-    height: 512px;
-    width: 512px;
-    background-image: url("../site/spotlightcookie_temp_hl2.jpg");
-    mix-blend-mode: screen;
-    opacity: 0.9;
-    /*filter:("../site/cursor.svg#spotcookieblend")*/
+#nextperformance {
+	display: flex;
+	margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
-#darkness {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    pointer-events: none;
-    background-color: black;
-    mix-blend-mode: normal;
-    opacity: 0.9;
-	mask-image: url("../site/spotlightcookie_temp_hl2_inv.jpg");
-	mask-mode: luminance;
-	mask-repeat: no-repeat;
+.perf {
+	display: flex;
+	flex-direction: column;
+	padding: 0rem 2rem 0rem 2rem;
+}
+
+#nextperf-right {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+#nextperf-left {
+	display: flex;
+	position: absolute;
+	margin-left: 840px;
+}
+
+#nextperf-left .perf {
+	align-items: flex-end;
+	padding: 0rem 1rem 0rem 1rem;
+}
+
+/* == Page Styling == */
+
+.headlinehr {
+	width: 200vw;
+	border: none;
+	border-top: 1px dashed black;
+}
+
+#lowerheadlinehr {
+	position: relative;
+	right: 100vw;
+}
+
+#perfname span::before {
+	position: absolute;
+	margin-left: -2.1rem;
+	content: "/"
+}
+
+#perfloc span:first-of-type::before {
+	position: absolute;
+	margin-left: -4rem;
+	content: "NEXT"
+}
+
+/* == Text Styling == */
+
+h1 {
+	font-size: 3rem;
+	margin-bottom: 0;
+}
+
+#title {
+	text-decoration: none;
+	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
+}
+
+#titlespan1 {
+	font-size: 2rem;
+}
+
+#titlecontact {
+	display:flex;
+	justify-content: end;
+	font-size: 2rem;
+	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
+}
+
+.content p {
+	padding: 0rem 2rem 0rem 2rem;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
 /* ~~~~~~ mobile and small screens settings ~~~~~~ */
