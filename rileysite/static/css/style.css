@@ -8,7 +8,14 @@ html {
     overscroll-behavior-y: auto;
 	overflow-x: clip;
 	overscroll-behavior-x: none;
-    font-family: 'SimSun';
+    font-family: 'SimSun', monospace;
+}
+
+@font-face {
+	font-family: 'SimSun';
+	src:url('../font/simsun.woff2') format('woff2'),		
+		url('../font/simsun.ttf') format('truetype');
+	font-style: normal;
 }
 
 body {
@@ -30,7 +37,7 @@ body {
 	font-size: 1.4rem;
 	display: flex;
 	flex-direction: column;
-	padding-top: 40vh;
+	padding-top: 15.8rem;
 }
 
 #contentpane {
@@ -70,7 +77,6 @@ article {
 
 #nextperformance {
 	display: flex;
-	margin: 0.2rem 0rem 0.2rem 0rem;
 }
 
 .perf {
@@ -98,14 +104,15 @@ article {
 /* == Page Styling == */
 
 .headlinehr {
-	width: 200vw;
+	width: 100%;
 	border: none;
 	border-top: 1px dashed black;
 }
 
 #lowerheadlinehr {
+	width: 200vw;
 	position: relative;
-	right: 100vw;
+	margin-left: -100vw;
 }
 
 #perfname span::before {
@@ -120,16 +127,66 @@ article {
 	content: "NEXT"
 }
 
+#navlinksectionmain {
+	margin: 1rem 0rem 1rem 0rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbutton {
+	font-size: 1.2rem;
+	padding: 0.3rem 1rem 0.45rem 1rem;
+	margin: 0rem 1rem 0rem 1rem;
+	border: 1px dashed #9b9093;
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+	text-decoration: underline dashed;
+	color: #9b9093;
+}
+
+.content hr {
+	margin: 0.2rem 0rem 2rem 0rem;
+	border: none;
+	border-top: 1px dashed black;
+}
+
 /* == Text Styling == */
 
 h1 {
 	font-size: 3rem;
-	margin-bottom: 0;
+	margin: 0;
+}
+
+h2 {
+	font-size: 2rem;
+	display: flex;
+	justify-content: flex-end;
+	margin:0;
+	color: #9b9093;
+	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
 }
 
 #title {
 	text-decoration: none;
+	color: #9b9093;
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
+}
+
+#title:visited {
+	color: #9b9093;
+}
+
+#title:hover {
+	color: #bdb0b4 !important;
+}
+
+.navbutton:visited {
+	color: #9b9093;
+}
+
+.navbutton:hover {
+	color: #bdb0b4 !important;
 }
 
 #titlespan1 {
@@ -141,6 +198,25 @@ h1 {
 	justify-content: end;
 	font-size: 2rem;
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
+	text-decoration: underline dotted;
+	color: #9b9093;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	font-family: 'SimSun', monospace;
+}
+
+#titlecontact:hover {
+	color: #bdb0b4 !important;
+}
+
+#emailcopiednotif {
+	display: flex;
+	font-size: 1rem;
+	justify-content: flex-end;
+	padding-right: 0.89rem;
 }
 
 .content p {
@@ -149,14 +225,32 @@ h1 {
 	text-justify: inter-word;
 }
 
+.content a {
+	color: #9b9093;
+	text-decoration: underline dashed;
+}
+
+.content a:hover {
+	color: #bdb0b4 !important;
+}
+
+#ceresfootnote {
+	font-size: 0.8rem;
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* ~~~~~~ mobile and small screens setup ~~~~~~ */
+#titlemobilecontainer {
+	display: none;
+	justify-content: center;
+	padding: 0rem 2rem 0rem 2rem;
+	margin: 0.5rem 0rem 1rem 0rem;
+	flex-direction: column;
+}
+
 /* ~~~~~~ mobile and small screens settings ~~~~~~ */
-@media only screen and (max-width: 800px) {
-    :root{
-		font-size: 16px;
-	}
-	html {
-        font-size: 16px;
-    }
+@media only screen and (max-width: 1400px) {
 	body {
 		flex-direction: column;
 	}
@@ -166,7 +260,79 @@ h1 {
 	#extrapane {
 		display: none;
 	}
+	#contentpane {
+		justify-content: center;
+	}
 	#main {
 		margin: 0rem 0rem 0rem 0rem;
     }
+	#titlemobilecontainer {
+		display: flex;
+	}
+	#nextperf-right {
+		font-size: 14px;
+		justify-content: flex-end;
+		flex-grow: 1;
+	}
+	#nextperf-left {
+		font-size: 14px;
+		position: unset;
+		margin-left: 0;
+	}
+	#nextperformance {
+		justify-content: space-between;
+	}
+	.perf {
+		padding: 0 !important;
+	}
+	#perfname {
+		padding-left: 4rem !important;
+	}
+	h1 {
+		font-size: 3rem;
+	}
+}
+
+@media only screen and (max-width: 840px) {
+    :root{
+		font-size: 16px;
+	}
+	html {
+        font-size: 16px;
+    }
+	#navlinksectionmain {
+		flex-direction: column;
+	}
+	#perfloc {
+		display: none;
+	}
+	#perfname span::before {
+		display: none;
+	}
+	#nextperf-right, #nextperf-left {
+		font-size: 12px;
+	}
+	#perfname {
+		padding-left: 0.5rem !important
+	}
+	#nextperf-left .perf {
+		padding-right: 0.5rem !important;
+	}
+	h2 {
+		padding: 0rem 2rem 0rem 2rem;
+	}
+	.content hr {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+	.navbutton {
+		margin: 0.2rem 1rem 0.2rem 1rem;
+	}
+	#ceresfootnote {
+		margin: 0rem 1rem 0rem 1rem;
+	}
+	h2, #title {
+		filter: blur(0.01rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
+	}
+
 }
