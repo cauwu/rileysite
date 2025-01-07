@@ -8,12 +8,12 @@ This README contains instructions for what to do with the website and how it wor
 ### Download the website from Github
 The easiest way to download the website is in the top-right of the screen when looking at the Rileysite Github repo, click the green button `Code` and then `Download ZIP`. Unpack the `.zip` file somewhere easy to get to on your computer, like your `Documents` folder.
 
-### Local Testing Server
+### Local Server
 If you just open the HTML files in a browser they won't show up properly. The HTML files request access to other files nearby (CSS files for page styling, colours, layout etc) and things like images and fonts, and by default the browser isn't allowed to do that when the website isn't loaded using a server unless you tell it to. It also can't request resources from other websites unless you tell it to. It's a security feature called [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) that is important when the website is live, but doesn't matter right now. You don't need to turn it off though.
 
 You'll need to start a server. There's endless ways to do it but the simplest is probably using Python. You might already have Python installed, but if you don't, follow:
 
-1) [Download the Python installer](https://www.python.org/downloads/)
+1) [Download the Python installer and install it](https://www.python.org/downloads/)
 2) Press the Windows key and type '`cmd`'
 3) When it opens, type `cd Documents/rileysite/rileysite` (or `cd [wherever you unpacked the zip file]/rileysite/rileysite`). Type `dir` to show what's inside the folder (directory) you're in if you get lost.
 4) When you're inside the `rileysite` directory and you can see '`index.html`' on the list when you type `dir`, type `python -m http.server`
@@ -56,11 +56,9 @@ I have designed the website so that it's pretty simple to change and update thin
 
 A website's homepage is usually always named `index.html`. To make other webpages, you can make a new text file in the same folder as `index.html` or a folder underneath it, rename the file extension to `.html`, and give it a name with no spaces.
 
-`HTML` stands for Hypertext Markup Language, and this is where the content of your website goes. Text, images, links, and the boxes and spaces you want to separate your website into go here.
-
-`CSS` stands for Content Style Sheets, and this is where you style the elements you wrote in HTML. You can specify pieces and sections by name and position, align, colour, size them however you want using text.
-
-`JS` stands for Javascript. You can use Javascript to make certain parts about your website more interactive or change over time or circumstances. You don't need to touch Javascript for a long time though if you don't want to.
+- `HTML` stands for Hypertext Markup Language, and this is where the content of your website goes. Text, images, links, and the boxes and spaces you want to separate your website into go here.
+- `CSS` stands for Content Style Sheets, and this is where you style the elements you wrote in HTML. You can specify pieces and sections by name and position, align, colour, size them however you want using text.
+- `JS` stands for Javascript. You can use Javascript to make certain parts about your website more interactive or change over time or circumstances. You don't need to touch Javascript for a long time though if you don't want to.
 
 For more information about these things [you can start learning here if you want.](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started)
 
@@ -129,7 +127,7 @@ You don't need to use Git really, but it makes things easier once you learn how 
 
 It's the Github repo that will be provided to Cloudflare pages or Github pages (whichever you prefer, I use Cloudflare) and whatever is on the Github repo will be what goes live on the website.
 
-Using Git you download (_pull/fetch_) and upload (_push_) the changes, additions, deletions etc you made to your website on your computer. Using Git you can also store a history that you can revert back to if you mess something up. You can also store different versions of the same project on Branches.
+Once Git is set up in a directory, it will automatically note the changes you've made to any of the files in that directory and its subdirectories. Using Git you download (_pull/fetch_) and upload (_push_) the changes, additions, deletions etc you made. Using Git you can also store a history that you can revert back to if you mess something up. You can also store different versions of the same project on Branches. A copy of your files and the changes you made are stored on Github.
 
 Git will also tell you when other people have changed things about the project you're working on and will help you merge conflicts (when you both make changes to the same thing).
 
@@ -153,9 +151,77 @@ You're looking first to _clone_ the Github repository to your computer. It needs
 
 On command line: Navigate to the directory you want `rileysite` to be added to, (like `/Documents/`) and then type: 
 `git clone https://github.com/cauwu/rileysite`
-If it worked, it should say something like `'rileysite' has been cloned into a folder named 'rileysite'`.
+If it worked, it should say something like `'rileysite' has been cloned into a folder named 'rileysite'`. Git will automatically be set up in that folder, and all the important information that Git needs will be in a folder named `.git/` inside `rileysite/`. If you can't see `.git/`, it's because folders and files starting with `.` are _hidden_. To unhide them, in File Explorer, go to `Options > View > Show hidden files, folders and drives`.
 
 ### When you've made changes and want to push them
 
+First, `add` (meaning track) what you want to push. In a command line type `cd ~/Documents/rileysite` to change directory to the root of your website, and then:
 
+`git status` will show what Git will upload. Every file you've changed, added or deleted should be highlighted in red as "not tracked", so to track them, type:
+
+`git add .` (`.` is an operator that means "this directory", so by saying `add .` it means track everything in this directory)
+
+Then `git status` again should highlight everything in yellow as tracked.
+
+`git commit -m "message"` where you replace `message` in quotes with a short commit message (keep the quotes) saying what you did. The message can be anything, or nothing, but it's good practice to write something helpful. "Added news page", "Fixed an issue", etc.
+
+Once you've made a commit it's stored on your computer. If you rollback to a previous commit, you will lose all the changes you made between that commit and the previous one. You can go forwards again though, because you committed your changes.
+
+For your commit to be visible to everyone else, you need to `push` it.
+
+`git push -u origin main` pushes the commit(s) you've made to the `main` branch. `-u origin` means `https://github.com/cauwu/rileysite`.
+
+### Getting changes someone else has made
+
+You need to manually check if changes have been made to the website by someone else. You should only check after you've made a commit, because if you don't, their changes will remove everything you've done.
+
+Don't worry about someone else making changes to a file you were working on. Unless they have completely changed the file you were working on, Git will usually be able to help you merge the changes. Though, it's better to communicate to make sure you aren't making changes to the same files at the same time. If it does happen, you can `push` to a new branch, and then merge the branches later once you've talked it over.
+
+To get changes from online, type:
+
+`git pull` and Git will synchronise everything for you.
+
+If you don't want to have your working directory changed when you get changes from online, type:
+
+`git fetch` and the changes will be added only to your local Git repo. To update your files, you then have to type `git merge`.
+
+### Git help
+
+Git is complicated and takes a long time to understand. You may find some help by looking up commands you need in Google, and reading as much as possible. However often you need someone to explain to you how to use Git. Don't be worried to ask questions.
+
+## Domain names
+
+### Registration
+
+You pay a domain registrar to reserve/rent domain names. This is charged yearly and the purchase price (first year) is usually cheaper than the renewal price (every year after that). There are multiple registrars and they tend to offer different prices. The organisation responsible for domain name standards is called [ICANN](https://en.wikipedia.org/wiki/ICANN) and they also handle legal disputes about domain name ownership.
+
+A domain name is an aesthetic layer over an IP address that's easy to type and remember. You don't actually need a domain name to have a website, but it is pretty helpful.
+
+A url is made up of parts:
+
+``` 
+https://www.google.com 
+
+ - https://         This part means the protocol. There are other protocols, for example, Gopher: `gopher.quux.org:70/`
+ - www.             This is a subdomain. It's optional, but can be used to direct to seperate websites.
+ - google           This is called the `hostname`.
+ - .com             This is called the `TLD`, or Top Level Domain name.
+
+ ```
+
+When you choose a domain name, you choose the _hostname_ and the _TLD_. There are only so many TLDs, though ICANN keeps adding more. The hostname can be whatever you want, so long as it + the TLD are unique together. So, for example, `google.com` is Google, but `google.ml` is not. (Note, `google.ml` _actually is_ Google, they bought it and it directs to `google.com`. But the point is the same)
+
+#### Actually Buying a Domain name
+
+Choose a registrar with good reviews, like Porkbun or something like that. You will pay them money, and they'll ask for another payment every year to keep your domain name yours.
+
+But Porkbun doesn't have the best system for pointing your domain name to the server with your website on it. _Nameservers_ are the servers that run the _Domain Name System_ (DNS), and anyone can set up a DNS nameserver. However, for DNS system operators with less capacity and scale, like Porkbun compared to Cloudflare, Github, or Google, it can take longer for your domain name to become known by all the nameservers, who share records with each other in a big mesh network. You can make updates to these records and they may take days to resolve, or only hours with Cloudflare. Your DNS records also have less liklihood of expiring over time: If nobody from Malawi or Fiji accesses your website, and your only DNS nameservers are in North Carolina, many users may find it takes a long time for your website to load or pieces may time-out. You can experience this when trying to access obscure Chinese corporate websites, for example.
+
+To get the maximum reach for your domain name, you should change your Porkbun (or whatever other registrar you used) nameservers to Cloudflare ones.
+
+### DNS using Cloudflare
+
+
+
+## Web Hosting
 
