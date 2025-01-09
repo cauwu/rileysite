@@ -13,8 +13,8 @@ html {
 
 @font-face {
 	font-family: 'SimSun';
-	src:url('../font/simsun.woff2') format('woff2'),		
-		url('../font/simsun.ttf') format('truetype');
+	src:url('../font/SimSun.woff2') format('woff2'),		
+		url('../font/SimSun.ttf') format('truetype');
 	font-style: normal;
 }
 
