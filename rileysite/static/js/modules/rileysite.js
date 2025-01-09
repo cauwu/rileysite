@@ -1,7 +1,9 @@
+// Wait until the page is loaded, then:
 window.addEventListener("DOMContentLoaded", () => {
 	emailcopysystem();
 });
 
+// Email is copied to clipboard in 2 pieces to make it more difficult for scrapers
 const emailcopysystem = () => {
     document.querySelectorAll('#titlecontact').forEach((button) => {
         button.addEventListener('mousedown', () => {
@@ -11,6 +13,7 @@ const emailcopysystem = () => {
     });
 }
 
+// Notification underneath the button. This should probably be a browser notif. Change later
 let timeout;
 const showhidecopiednotif = () => {
     const notif = document.getElementById('emailcopiednotif');
@@ -19,6 +22,7 @@ const showhidecopiednotif = () => {
     timeout = setTimeout(hidenotif, 3000);
 }
 
+// This function is called when the timeout triggers
 const hidenotif = () => {
     document.getElementById('emailcopiednotif').innerHTML = "";
 }

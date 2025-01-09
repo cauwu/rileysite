@@ -20,8 +20,6 @@ html {
 
 body {
     margin: 0rem;
-	display: flex;
-	flex-direction: column;
 	padding-top: 1rem;
 }
 
@@ -53,8 +51,6 @@ body {
 
 #main {
 	max-width: 840px;
-	display: flex;
-	flex-direction: column;
 	margin: 0rem 0.6rem 0rem 0.6rem;
 }
 
@@ -64,15 +60,8 @@ body {
 }
 
 footer {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	padding: 0.4rem 0.6rem 0.3rem 0.6rem;
-}
-
-article {
-	display: flex;
-	flex-direction: column;
 }
 
 #nextperformance {
@@ -145,10 +134,103 @@ article {
 	color: #9b9093;
 }
 
+.navbutton:visited {
+	color: #9b9093;
+}
+
+.navbutton:hover {
+	color: #bdb0b4 !important;
+	border: 1px dashed #bdb0b4 !important;
+}
+
 .content hr {
 	margin: 0.2rem 0rem 2rem 0rem;
 	border: none;
 	border-top: 1px dashed black;
+}
+
+table {
+	padding: 0rem 1rem 0rem 2rem;
+	margin: 1rem 0rem 1rem 0rem;
+	width: 100%;
+}
+
+table tr td span {
+	position: relative;
+	margin-left: -1rem;
+}
+
+table tr td button {
+	color: #9b9093;
+	border: 1px dashed #9b9093;
+	border-radius: 0;
+	background-color: transparent;
+}
+
+table tr td button:hover {
+	color: #bdb0b4;
+	border: 1px dashed #bdb0b4 !important;
+}
+
+table tr td button a {
+	color: #9b9093;
+	text-decoration: none;
+	font-size: 1rem;
+	font-family: 'SimSun', monospace;
+}
+
+table tr td button a:visited {
+	color: #9b9093;
+}
+
+table tr td button a:hover {
+	color: #bdb0b4 !important;
+}
+
+table tr td em {
+	font-size: 1.1rem;
+}
+
+#eventsnexthr {
+	margin: 0.4rem 0rem 0.2rem 0rem !important;
+	border-top: 1px solid crimson;
+	overflow: visible;
+	text-align: left;
+	height: 0.25rem;
+}
+
+#eventsnexthr::after {
+	content: "🠶";
+	color: crimson;
+	position: relative;
+	font-size: 1.5rem;
+	top: -1.08rem;
+	left: -1.08rem;
+}
+
+.tabledropdown {
+	display: none;
+	position: relative;
+	margin-left: -1rem;
+}
+
+.tablehr {
+	margin: 0.2rem 0rem 1rem 0rem !important;
+}
+
+.tablebutton {
+	text-align: right;
+}
+
+figure {
+	padding: 0rem;
+	margin: 0rem;
+	font-size: 0rem;
+}
+
+figure img {
+	max-width: 100%;
+	width: 100%;
 }
 
 /* == Text Styling == */
@@ -167,6 +249,10 @@ h2 {
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
 }
 
+.pagetitleh2 {
+	justify-content: center !important;
+}
+
 #title {
 	text-decoration: none;
 	color: #9b9093;
@@ -178,14 +264,6 @@ h2 {
 }
 
 #title:hover {
-	color: #bdb0b4 !important;
-}
-
-.navbutton:visited {
-	color: #9b9093;
-}
-
-.navbutton:hover {
 	color: #bdb0b4 !important;
 }
 
@@ -223,15 +301,6 @@ h2 {
 	padding: 0rem 2rem 0rem 2rem;
 	text-align: justify;
 	text-justify: inter-word;
-}
-
-.content a {
-	color: #9b9093;
-	text-decoration: underline dashed;
-}
-
-.content a:hover {
-	color: #bdb0b4 !important;
 }
 
 #ceresfootnote {
