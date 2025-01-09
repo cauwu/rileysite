@@ -160,35 +160,39 @@ table tr td span {
 	margin-left: -1rem;
 }
 
-table tr td button {
+table tr td button, #learnmorelink {
 	color: #9b9093;
 	border: 1px dashed #9b9093;
 	border-radius: 0;
 	background-color: transparent;
 }
 
-table tr td button:hover {
+table tr td button:hover, #learnmorelink:hover {
 	color: #bdb0b4;
 	border: 1px dashed #bdb0b4 !important;
 }
 
-table tr td button a {
+table tr td button a, #learnmorelink a {
 	color: #9b9093;
 	text-decoration: none;
 	font-size: 1rem;
 	font-family: 'SimSun', monospace;
 }
 
-table tr td button a:visited {
+table tr td button a:visited, #learnmorelink a:visited {
 	color: #9b9093;
 }
 
-table tr td button a:hover {
+table tr td button a:hover, #learnmorelink a:hover {
 	color: #bdb0b4 !important;
 }
 
 table tr td em {
 	font-size: 1.1rem;
+}
+
+.textaligncenter {
+	text-align: center !important;
 }
 
 #eventsnexthr {
@@ -231,6 +235,21 @@ figure {
 figure img {
 	max-width: 100%;
 	width: 100%;
+}
+
+.listensection {
+	display: flex;
+	padding-bottom: 0.2rem;
+	aspect-ratio: 2 / 1;
+	margin: 0rem 1rem 0rem 1rem;
+}
+
+.listensection iframe:last-child {
+	padding-left: 0.1rem;
+}
+
+.listensection iframe:first-child {
+	padding-right: 0.1rem;
 }
 
 /* == Text Styling == */
@@ -301,6 +320,10 @@ h2 {
 	padding: 0rem 2rem 0rem 2rem;
 	text-align: justify;
 	text-justify: inter-word;
+}
+
+#learnmorelink {
+
 }
 
 #ceresfootnote {
