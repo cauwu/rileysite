@@ -9,14 +9,14 @@ window.addEventListener("DOMContentLoaded", () => {
 const portfoliotablesystem = () => {
     document.querySelectorAll('table tr td button').forEach((button) => {
         button.addEventListener('mousedown', () => {
-            if (button.innerHTML === "▼") {
+            if (button.innerHTML === "More ▼") {
                 const dropdown = document.getElementById(button.name);
                 dropdown.style.display = "block";
-                button.innerHTML = "▲"
+                button.innerHTML = "Less ▲"
             } else {
                 const dropdown = document.getElementById(button.name);
                 dropdown.style.display = "none";
-                button.innerHTML = "▼"
+                button.innerHTML = "More ▼"
             }
         });
     });

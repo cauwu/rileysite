@@ -1,6 +1,10 @@
 :root {
     font-size: 20px;
     color-scheme: light;
+	background-color: light-dark(#fffff8, #111111);
+
+	--rs-interactive-colour:#9b9093;
+	--rs-interactive-colour-hover:#bdb0b4;
 }
 
 html {
@@ -96,7 +100,7 @@ footer {
 .headlinehr {
 	width: 100%;
 	border: none;
-	border-top: 1px dashed black;
+	border-top: 1px dashed currentColor;
 }
 
 #lowerheadlinehr {
@@ -137,27 +141,26 @@ footer {
 	font-size: 1.2rem;
 	padding: 0.3rem 1rem 0.45rem 1rem;
 	margin: 0rem 1rem 0rem 1rem;
-	border: 1px dashed #9b9093;
+	border: 1px dashed currentColor;
 	display: flex;
 	justify-content: center;
 	flex-grow: 1;
 	text-decoration: underline dashed;
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 }
 
 .navbutton:visited {
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 }
 
 .navbutton:hover {
-	color: #bdb0b4 !important;
-	border: 1px dashed #bdb0b4 !important;
+	color: var(--rs-interactive-colour-hover) !important;
 }
 
 .content hr {
 	margin: 0.2rem 0rem 2rem 0rem;
 	border: none;
-	border-top: 1px dashed black;
+	border-top: 1px dashed currentColor;
 }
 
 table {
@@ -172,30 +175,29 @@ table tr td span {
 }
 
 table tr td button, .learnmorelink {
-	color: #9b9093;
-	border: 1px dashed #9b9093;
+	color: var(--rs-interactive-colour);
+	border: 1px dashed currentColor;
 	border-radius: 0;
 	background-color: transparent;
 }
 
 table tr td button:hover, .learnmorelink:hover {
-	color: #bdb0b4;
-	border: 1px dashed #bdb0b4 !important;
+	color: var(--rs-interactive-colour-hover);
 }
 
 table tr td button a, .learnmorelink a {
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 	text-decoration: none;
 	font-size: 1rem;
 	font-family: 'SimSun', monospace;
 }
 
 table tr td button a:visited, .learnmorelink a:visited {
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 }
 
 table tr td button a:hover, .learnmorelink a:hover {
-	color: #bdb0b4 !important;
+	color: var(--rs-interactive-colour-hover) !important;
 }
 
 table tr td em {
@@ -215,7 +217,7 @@ table tr td em {
 }
 
 #eventsnexthr::after {
-	content: "🠶";
+	content: "\1F836";
 	color: crimson;
 	position: relative;
 	font-size: 1.5rem;
@@ -275,7 +277,7 @@ h2 {
 	display: flex;
 	justify-content: flex-end;
 	margin:0;
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
 }
 
@@ -285,16 +287,16 @@ h2 {
 
 #title {
 	text-decoration: none;
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
 }
 
 #title:visited {
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 }
 
 #title:hover {
-	color: #bdb0b4 !important;
+	color: var(--rs-interactive-colour-hover) !important;
 }
 
 #titlespan1 {
@@ -307,7 +309,7 @@ h2 {
 	font-size: 2rem;
 	filter: blur(0.02rem) drop-shadow(0 0 0.1rem light-dark(#c0c0c0, #141414));
 	text-decoration: underline dotted;
-	color: #9b9093;
+	color: var(--rs-interactive-colour);
 	padding: 0;
 	margin: 0;
 	background-color: transparent;
@@ -317,7 +319,7 @@ h2 {
 }
 
 #titlecontact:hover {
-	color: #bdb0b4 !important;
+	color: var(--rs-interactive-colour-hover) !important;
 }
 
 #emailcopiednotif {
@@ -333,8 +335,13 @@ h2 {
 	text-justify: inter-word;
 }
 
-.learnmorelink {
+#nextperformance a, #nextperformance a:visited, .maphyperlink, .maphyperlink:visited {
+	color: var(--rs-interactive-colour);
+	text-decoration: underline dotted;
+}
 
+#nextperformance a:hover, .maphyperlink:hover {
+	color: var(--rs-interactive-colour-hover);
 }
 
 #ceresfootnote {
