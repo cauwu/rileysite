@@ -265,6 +265,13 @@ figure img {
 	padding-right: 0.1rem;
 }
 
+.listenportfolio {
+	display: flex;
+	padding: 0.2rem 0rem 0.8rem 0rem;
+	aspect-ratio: 2 / 1;
+	margin: 0rem 1rem 0rem 2rem;
+}
+
 /* == Text Styling == */
 
 h1 {
